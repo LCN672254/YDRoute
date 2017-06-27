@@ -10,6 +10,7 @@
 #import "NSString+YDQuery.h"
 #import "UIViewController+YDRouteRequest.h"
 #import "NSError+RouteError.h"
+#import "ViewController.h"
 
 @interface YDRouteHandler ()
 
@@ -65,7 +66,10 @@
 
     UINavigationController *nav = (UINavigationController *)[[UIApplication sharedApplication] windows][0].rootViewController;
     
-    if (![nav isKindOfClass:[UINavigationController class]]) {
+    if ([nav isKindOfClass:[ViewController class]]) {
+     
+        ViewController *vc = (ViewController *)nav;
+        return [vc currentViewController];
         
     }
     

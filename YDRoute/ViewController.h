@@ -10,6 +10,10 @@
 
 @interface ViewController : UIViewController
 
+- (UIViewController *) currentViewController;
 
+- (UIViewController *) viewControllerWithHost:(NSString *) host;
+
+- (BOOL) switchToController:(UIViewController *)vc;
 @end
 

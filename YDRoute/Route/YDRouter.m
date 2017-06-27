@@ -58,7 +58,7 @@
  */
 - (NSString *) handleScheme{
 
-    return nil;
+    return @"ydservice";
 }
 
 - (BOOL) canHandleURL:(NSURL *)url{
@@ -109,8 +109,13 @@
             
         if (handler == nil) {
             
-            completion(NO,[NSError YDRouteNotFound]);
-        
+            if (completion) {
+                
+                completion(NO,[NSError YDRouteNotFound]);
+
+            }
+            
+            
             return NO;
         }
             
@@ -122,13 +127,21 @@
             
             BOOL result = [handler handleRequest:request error:&error];
             
-            completion(true,error);
+            
+            if (completion) {
+             
+                completion(true,error);
+            }
             
             return result;
             
         }else{
         
-            completion(true,[NSError YDRouteNotFound]);
+            if (completion) {
+            
+                completion(true,[NSError YDRouteNotFound]);
+                
+            }
             
             return NO;
         
@@ -143,7 +156,11 @@
     
     BOOL result = [handler handleRequest:request error:&error];
     
-    completion(true,error);
+    if (completion) {
+     
+           completion(true,error);
+        
+    }
     
     return result;
 
