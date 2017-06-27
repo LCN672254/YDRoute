@@ -12,8 +12,8 @@
 
 
 /**
-    解析数据时使用
-
+ 
+ 解析数据时使用
  @return 数据接送
  */
 - (NSDictionary *) parametersFromQueryString;

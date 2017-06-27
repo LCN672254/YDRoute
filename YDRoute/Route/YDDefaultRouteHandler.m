@@ -15,8 +15,8 @@
 - (BOOL) shouldHandleRequest:(YDRouteRequest *)request{
 
     NSString *urlString = request.url.absoluteString;
-    
     return ([urlString hasPrefix:@"http://"]||[urlString hasPrefix:@"https://"]);
+    
 }
 
 - (UIViewController *) targetViewControllerWithRequest:(YDRouteRequest *)request{
